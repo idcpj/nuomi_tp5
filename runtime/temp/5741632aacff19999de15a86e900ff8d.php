@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:78:"D:\phpStudy\WWW\nuomi_tp5\public/../application/admin\view\category\index.html";i:1501774115;s:76:"D:\phpStudy\WWW\nuomi_tp5\public/../application/admin\view\public\_meta.html";i:1501714147;s:78:"D:\phpStudy\WWW\nuomi_tp5\public/../application/admin\view\public\_footer.html";i:1501715183;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:78:"D:\phpStudy\WWW\nuomi_tp5\public/../application/admin\view\category\index.html";i:1501774115;s:76:"D:\phpStudy\WWW\nuomi_tp5\public/../application/admin\view\public\_meta.html";i:1501714147;s:78:"D:\phpStudy\WWW\nuomi_tp5\public/../application/admin\view\public\_footer.html";i:1502631962;}*/ ?>
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -95,7 +95,6 @@
 <script type="text/javascript" src="__STATIC__/admin/js/common.js"></script>
 <!--<script type="text/javascript" src="__STATIC__/admin/uploadify/jquery.uploadify.min.js"></script>-->
 <!--<script type="text/javascript" src="__STATIC__/admin/js/image.js"></script>-->
-
 
 
 <script>

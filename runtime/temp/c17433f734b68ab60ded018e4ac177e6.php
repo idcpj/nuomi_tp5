@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:5:{s:75:"D:\phpStudy\WWW\nuomi_tp5\public/../application/admin\view\index\index.html";i:1501596836;s:76:"D:\phpStudy\WWW\nuomi_tp5\public/../application/admin\view\public\_meta.html";i:1501714147;s:78:"D:\phpStudy\WWW\nuomi_tp5\public/../application/admin\view\public\_header.html";i:1501593695;s:76:"D:\phpStudy\WWW\nuomi_tp5\public/../application/admin\view\public\_menu.html";i:1501595652;s:78:"D:\phpStudy\WWW\nuomi_tp5\public/../application/admin\view\public\_footer.html";i:1501715183;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:5:{s:75:"D:\phpStudy\WWW\nuomi_tp5\public/../application/admin\view\index\index.html";i:1501596836;s:76:"D:\phpStudy\WWW\nuomi_tp5\public/../application/admin\view\public\_meta.html";i:1501714147;s:78:"D:\phpStudy\WWW\nuomi_tp5\public/../application/admin\view\public\_header.html";i:1501593695;s:76:"D:\phpStudy\WWW\nuomi_tp5\public/../application/admin\view\public\_menu.html";i:1501595652;s:78:"D:\phpStudy\WWW\nuomi_tp5\public/../application/admin\view\public\_footer.html";i:1502631962;}*/ ?>
 ﻿<!--包含头部文件-->
 <!DOCTYPE HTML>
 <html>
@@ -176,7 +176,6 @@
 <script type="text/javascript" src="__STATIC__/admin/js/common.js"></script>
 <!--<script type="text/javascript" src="__STATIC__/admin/uploadify/jquery.uploadify.min.js"></script>-->
 <!--<script type="text/javascript" src="__STATIC__/admin/js/image.js"></script>-->
-
 
 
 </body>

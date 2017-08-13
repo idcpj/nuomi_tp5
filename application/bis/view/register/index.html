@@ -15,15 +15,17 @@
                 <span class="select-box">
 				<select class="select">
 					<option>请选择</option>
-					<option value="1">件</option>
-					<option value="5">套</option>
+                    {volist name="citys" id="vo"}
+                        <option value="{$vo.id}">{$vo.name}</option>
+                    {/volist}
 				</select>
 				</span>
                 <span class="select-box">
 				<select class="select">
 					<option>请选择</option>
-					<option value="1">件</option>
-					<option value="2">斤</option>
+					{volist name="citys" id="vo"}
+                        <option value="{$vo.id}">{$vo.name}</option>
+                    {/volist}
 				</select>
 				</span>
             </div>
@@ -91,8 +93,7 @@
                 <span class="select-box">
 				<select class="select">
 					<option>请选择</option>
-					<option value="1">件</option>
-					<option value="5">套</option>
+
 				</select>
 				</span>
             </div>

@@ -7,7 +7,7 @@ use think\Model;
 class City extends Model
 {
 
-	public function getNormalCityByParentId($parentId=0){
+	public  function getNormalCityByParentId($parentId=0){
 		$where=[
 			'status'=>1,
 			'parent_id'=>$parentId,
