@@ -2,6 +2,7 @@
  * 上传文件
  */
 $(function() {
+    //缩略图
     $("#file_upload").uploadify({
         'swf'             : SCOPE.upload_swf,
         'uploader'        : SCOPE.upload_image,
@@ -15,7 +16,7 @@ $(function() {
                 var obj = JSON.parse(data);
                 if (obj.status == 1 ){
                     $("#upload_image_show").attr('src',obj.data);
-                    $("input[name=licence_logo]").val(obj.data);
+                    $("input[name=logo]").val(obj.data);
                 }
             }
         },

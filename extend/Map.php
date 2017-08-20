@@ -3,7 +3,7 @@
 
 		/**根据地址调用经纬度
 		 * @param $address
-		 * @return string
+		 * @return array
 		 */
 		public static function getLngLat($address){
 			if(empty($address)){
@@ -16,7 +16,11 @@
 			];
 			$url = config('map.baidu_map_url').config('map.geocoder').'?'.http_build_query($data);
 			$result = dourl($url);
-			return $result;
+			if($result){
+				return json_decode($result,true);
+			}else{
+				return '';
+			}
 		}
 
 		/**

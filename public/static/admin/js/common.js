@@ -103,9 +103,9 @@ $(".cityId").change(function () {
             $(data).each(function (i) {
                 html+=" <option value='"+this.id+"'>"+this.name+"</option>";
             })
-            $(".me_city_id").html(html);
+            $(".se_city_id").html(html);
         }else if(result.status==0){
-            $(".me_city_id").html('');
+            $(".se_city_id").html('');
         }
     },'JSON');
 })
