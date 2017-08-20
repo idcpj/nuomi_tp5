@@ -20,18 +20,18 @@ class Category extends Model
 		return $this->save($data);//添加
 	}
 
-	//添加页获取一级目录
-	public function getFirstCategory(){
+	//通过父id获取城市列表
+	public function getFirstCategory($parentId = 0){
 		$where=[
 			'status'=>1,
-			'parent_id'=>0,
+			'parent_id'=>$parentId,
 		];
 		$order=[
 			'id'=>'desc',
 		];
 		return $this->where($where)->order($order)->select();
 	}
-	//首页获取一级目录
+	//首页获取一级目录(分页)
 	public function getFirstCategorys($parentId=0){
 		$where=[
 			'status'=>['neq',-1],
@@ -43,6 +43,5 @@ class Category extends Model
 		];
 		return $this->where($where)->order($order)->paginate();
 	}
-
 
 }

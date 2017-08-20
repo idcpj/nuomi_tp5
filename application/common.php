@@ -32,3 +32,8 @@ function dourl($url,$type=0,$data=[]){
 	curl_close($ch);
 	return $output;
 }
+
+//日志呼出
+function write_log($msg){
+	Think\Log::record($msg,\think\Log::INFO,true);
+}

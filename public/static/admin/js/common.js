@@ -90,4 +90,44 @@ function article_shenqing(obj,id){
     layer.msg('已提交申请，耐心等待审核!', {icon: 1,time:2000});
 }
 
+//获取城市列表
+$(".cityId").change(function () {
+    var city_id=$(this).val(),
+        url=SCOPE.city_url,
+        postData={'id':city_id}
+    $.post(url,postData,function (result) {
+        if(result.status==1){
+            //将信息填充到select;
+            var data=result.data,
+                html='';
+            $(data).each(function (i) {
+                html+=" <option value='"+this.id+"'>"+this.name+"</option>";
+            })
+            $(".me_city_id").html(html);
+        }else if(result.status==0){
+            $(".me_city_id").html('');
+        }
+    },'JSON');
+})
+
+//获取分类列表
+$(".categoryId").change(function () {
+    var category_id=$(this).val(),
+        url=SCOPE.category_url,
+        postData={'id':category_id}
+    $.post(url,postData,function (result) {
+        if(result.status==1){
+            //将信息填充到select;
+            var data=result.data,
+                html='';
+            $(data).each(function (i) {
+                html+=" <input name='se_category_id[]' type='checkbox' id='checkbox-moban' value='" + this.id + "'>"+this.name;
+                html+="<label for='checkbox-moban' >&nbsp;</label>"
+            })
+            $(".category_child_id").html(html);
+        }else if(result.status==0){
+            $(".category_child_id").html('');
+        }
+    },'JSON');
+})
 
