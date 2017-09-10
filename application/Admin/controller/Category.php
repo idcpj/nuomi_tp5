@@ -3,6 +3,7 @@
 namespace app\admin\controller;
 
 use think\Controller;
+use think\Log;
 
 class Category extends Controller
 {
@@ -14,6 +15,7 @@ class Category extends Controller
 
     public function index()
     {
+
     	$parentId = input('parent_id',0,'intval');
     	$firsts = $this->category->getFirstCategorys($parentId);
         return $this->fetch('',[

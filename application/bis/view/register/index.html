@@ -6,7 +6,7 @@
         <div class="row cl">
             <h2>商户信息</h2>
         </div>
-        <div><a href="javascript:;" class="change_captcha"><img src="{:captcha_src()}" alt="captcha" /></a></div>
+        <div><a href="javascript:;" class="change_captcha" onclick="test(this)"><img src="{:captcha_src()}" alt="captcha" /></a></div>
         <input type="text" name="captcha">
         <div class="row cl">
             <label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>产品标题：</label>
@@ -186,6 +186,10 @@
         'category_url':'{:url("api/category/getategoryByParentId")}',
         'upload_swf':'__STATIC__/admin/uploadify/uploadify.swf',
         'upload_image':"{:url('api/image/upload')}"
+    }
+
+    function test(index) {
+        console.log(index.getAttribute('href'));
     }
 
 

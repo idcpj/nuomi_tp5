@@ -5,6 +5,7 @@ use app\common\model\Bis;
 use app\common\model\City;
 use think\Controller;
 use think\Env;
+use think\Log;
 
 class Register extends Controller
 {
@@ -22,7 +23,7 @@ class Register extends Controller
 		$this->bisAccount=model("BisAccount");
 	}
 	public function index(){
-
+		halt($var);
 
 		//获取一级城市列表
 		$citys = $this->city->getNormalCityByParentId();
