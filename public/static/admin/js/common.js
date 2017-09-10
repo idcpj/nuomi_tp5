@@ -131,3 +131,8 @@ $(".categoryId").change(function () {
     },'JSON');
 })
 
+$(".change_captcha").click(function () {
+    var img = $(this).children('img');
+    var src =img.attr('src');
+    img.attr('src',src+'?'+Math.random());
+})

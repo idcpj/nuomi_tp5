@@ -2,9 +2,9 @@
 
 namespace app\common\model;
 
-use think\Model;
 
-class City extends Model{
+class City extends BaseModel{
+
 
 	//通过父id获取城市列表
 	public function getNormalCityByParentId($parentId = 0){

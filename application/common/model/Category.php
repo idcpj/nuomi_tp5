@@ -1,9 +1,10 @@
 <?php
 namespace app\common\model;
 
-use think\Model;
 
-class Category extends Model
+
+class Category extends BaseModel
+
 {
 
 	public function getStatusAttr($value){

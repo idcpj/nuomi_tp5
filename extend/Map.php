@@ -1,4 +1,5 @@
 <?php
+
 	class Map{
 
 		/**根据地址调用经纬度
@@ -41,6 +42,10 @@
 			];
 			$url = config('map.baidu_map_url').config('map.staticimage').'?'.http_build_query($data);
 			return $url;
+		}
+
+		public static function test(){
+			echo "1";
 		}
 	}
 

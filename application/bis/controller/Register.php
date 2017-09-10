@@ -4,6 +4,7 @@ namespace app\bis\controller;
 use app\common\model\Bis;
 use app\common\model\City;
 use think\Controller;
+use think\Env;
 
 class Register extends Controller
 {
@@ -11,14 +12,18 @@ class Register extends Controller
 	private $category;
 	private $bis;
 	private $location;
+	private $bisAccount;
 
 	public function _initialize(){
 		$this->city=model("City");
 		$this->category=model("Category");
 		$this->bis=model("Bis");
 		$this->location=model("Location");
+		$this->bisAccount=model("BisAccount");
 	}
 	public function index(){
+
+
 		//获取一级城市列表
 		$citys = $this->city->getNormalCityByParentId();
 		$cate  = $this->category->getFirstCategorys();
@@ -30,6 +35,9 @@ class Register extends Controller
 
 	//添加
 	public function add(){
+		$res =  input('post.captcha');
+		dump(captcha_check($res));
+		exit;
 		if(!$this->request->isPost()){
 			$this->error("非法访问");
 		}
@@ -43,8 +51,13 @@ class Register extends Controller
 		//}
 		//获取经纬度
 		$getlant = \Map::getLngLat($data['address']);
-		if(empty($getlant) || $getlant['status'] !=0 || $getlant['result']['precise']!=1){
+		if(empty($getlant) || $getlant['status'] !=0 ){
 			$this->error("无法获取数据");
+		}
+		//判断用户是否存在
+		$accountResult = Model('BisAccount')->get(['username'=>$data['username']]);
+		if($accountResult){
+			$this->error("该用户存在");
 		}
 		//商户信息入户
 		$bisData=[
@@ -67,6 +80,7 @@ class Register extends Controller
 		if(!empty($data['se_category_id'])){
 			$data['cat']=implode('|', $data['se_category_id']);
 		}
+
 		$bisId=1;
 		$locationData = [
 			'bis_id'=>$bisId,
@@ -79,11 +93,24 @@ class Register extends Controller
 			'xpoint'=>empty($getlant['result']['location']['lng'])?'':$getlant['result']['location']['lng'],
 			'ypoint'=>empty($getlant['result']['location']['lat'])?'':$getlant['result']['location']['lat'],
 		];
-		dump($locationData);
 
-		$bisLocationId= $this->location->add($data);
-		print_r($bisId);
+		$this->location->add($locationData);
+
+		//自动生成密码加盐
+		$data['code']=mt_rand(100,999);
 		//账户信息效验
+		$accountData = [
+			'bis_id'=>$bisId,
+			'username'=>$data['username'],
+			'password'=>md5($data['password'].$data['code']),
+			'is_main'=>1,
+		];
+		$accountId = $this->bisAccount->add($accountData);
+		if(!$accountId){
+			$this->error("审核失败");
+		}
+		//发送邮件 -测试失败
+		//sendMail('15726817105@163.com','陈鹏杰','zhe shi is ceshi','asdsdasdasdas');
 
 
 
